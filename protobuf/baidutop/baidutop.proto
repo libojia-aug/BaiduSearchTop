@@ -1,0 +1,21 @@
+syntax = "proto3";
+package baidutop;
+message topic{
+	string name=1;
+	int32 value=2;
+	message Details{
+		message Info{
+			string title=1;
+			string desc=2;
+		}
+		Info headlines=1;
+		message Context{
+			string time=1;
+			string title=2;
+		}
+		Context context=2;
+		repeated Info video=3;
+		repeated Info info=4;
+	}
+	Details details=3;
+}
