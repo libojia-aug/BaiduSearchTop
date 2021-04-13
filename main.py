@@ -1,11 +1,12 @@
 import spider.baiduTop as s
 
 def main():
-    myspider = s.BaiduTop()
-    myspider.getTopics()
-    print(myspider.topics_list)
-    print(myspider.values_list)
-    print(myspider.urls_list)
+    spider = s.BaiduTop()
+    spider.getTopics()
+    spider.getDetails()
+    print(spider.topics)
+    print(spider.values)
+    print(spider.urls)
 
 if __name__ == '__main__':
     main()
