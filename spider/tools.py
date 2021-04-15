@@ -1,3 +1,5 @@
+import re
+
 
 def formatString(s):
-    return s.replace(' ','').replace('\r','').replace('\n','').replace('\t','')
+    return re.sub('\s|\t|\n', '', s)

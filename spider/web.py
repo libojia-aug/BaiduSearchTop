@@ -24,9 +24,8 @@ def parse_url(url):
 def getSoup(encodeType, url):
     response = parse_url(url)
     response.encoding = encodeType
-    # print(response.encoding)
     soup = BeautifulSoup(response.text, 'html.parser')
-    # time.sleep(3)
+    time.sleep(10)
     return soup
 
 

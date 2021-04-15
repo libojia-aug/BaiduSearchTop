@@ -29,7 +29,7 @@ class BaiduTop():
 
     def getDetail(self, i):
         soup = web.getSoup('utf-8', self.urls[i])
-        detail = {'timeline_list': [], 'video': [], 'info': []}
+        detail = {'timeline': [], 'video': [], 'info': []}
         try:
             headlines = {}
             headlines['title'] = tools.formatString(soup.find(class_='c-span-last').span.a.get_text())
@@ -38,7 +38,7 @@ class BaiduTop():
                 timeline = {}
                 timeline['time'] = item.span.get_text()
                 timeline['title'] = item.a.get_text()
-                detail['timeline_list'].append(timeline)
+                detail['timeline'].append(timeline)
             for item in soup.find_all(class_='op-short-video-pc-title-new'):
                 video = {}
                 video['title'] = tools.formatString(item.get_text())
@@ -49,7 +49,21 @@ class BaiduTop():
                 info['desc'] = tools.formatString(item.find(class_='op_sp_realtime_new_subabs').get_text())
                 detail['info'].append(info)
         except Exception as e:
-            print(e)
+            # Anti Cheating
+            if soup.title.get_text() == '百度安全验证':
+                print('Anti cheating ======================>')
+                print(self.topics[i])
+                print(self.urls[i])
+                print('<====================================')
+                i = i-1
+                time.sleep(30)
+            else:
+                print('catch error ========================>')
+                print(e)
+                # print(soup)
+                print(self.topics[i])
+                print(self.urls[i])
+                print('<====================================')
 
         # self.details.append(detail)
         self.save(i, detail)
