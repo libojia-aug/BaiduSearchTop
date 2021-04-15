@@ -1,4 +1,4 @@
-一个百度风云榜(`http://top.baidu.com/buzz?b=1&fr=topindex`)爬虫
+[百度风云榜](http://top.baidu.com/buzz?b=1&fr=topindex)爬虫
 
 抓取实时热点、热度、对应百度搜索的快照
 
