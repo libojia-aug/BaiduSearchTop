@@ -10,21 +10,21 @@ def main():
     spider = s.BaiduTop()
     spider.getTopics()
     spider.getDetails()
-    print('Get '+str(len(spider.topics))+' topics')
-    print('topics list: '+'|'.join(spider.topics))
+    print('Get '+str(len(spider.topics))+' Topics')
+    print('Topics list: '+'|'.join(spider.topics))
 
     end = time.time()
     print('End at '+time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(end)))
-    print('Use '+str(end-start)+' seconds\n')
+    print('Use '+str(end-start)+' Seconds\n')
     # print(spider.values)
     # print(spider.urls)
 
 
 if __name__ == '__main__':
     # schedule.every(10).seconds.do(main)
-    # # schedule.every(2).hour.do(main)
+    schedule.every(2).hour.do(main)
 
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
-    main()
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+    # main()
