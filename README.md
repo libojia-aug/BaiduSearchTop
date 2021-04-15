@@ -21,14 +21,14 @@ retrying==1.3.3
 
 ##### 模块安装与管理工具
 
-```
+```shell
 pip3 install --upgrade pip -i https://pypi.douban.com/simple
 pip3 install -r ./requirements.txt -i https://pypi.douban.com/simple
 ```
 
 ##### 运行
 
-```
+```shell
 python3 main.py
 ```
 
@@ -52,8 +52,8 @@ Use 333.1485261917114 seconds
             |-- 12
             ...
         |-- 04-16
-        		|-- 10
-        		...
+            |-- 10
+            ...
         ...
     |-- 2022
     ...
@@ -91,8 +91,27 @@ Use 333.1485261917114 seconds
 <img src="https://github.com/libojia-aug/BaiduSearchTop/blob/main/pics/filestree.jpeg" width = "200"  alt="" align=center />
 <img src="https://github.com/libojia-aug/BaiduSearchTop/blob/main/pics/data.jpeg" width = "200"  alt="" align=center />
 
+## Docker
 
-### 编译
+##### 编译
 
-` make image`
+```shell
+make image
+```
+
+##### 运行
+
+```shell l
+docker run -v /BaiduSearchTop/data:/code/data baidu-search-top
+```
+
+## 定时任务
+
+```python
+if __name__ == '__main__':
+    schedule.every(2).hour.do(main)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+```
 
