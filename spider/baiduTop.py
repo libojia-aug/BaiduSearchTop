@@ -70,7 +70,7 @@ class BaiduTop():
 
     def save(self, i, detail):
         t = time.localtime()
-        path_list = ['./data', time.strftime("%Y", t), time.strftime("%m-%d", t), time.strftime("%H", t)]
+        path_list = ['./data', time.strftime("%Y", t), time.strftime("%m", t), time.strftime("%d", t), time.strftime("%H", t)]
         path = '/'.join(path_list)
         if not os.path.exists(path):
             os.makedirs(path)
