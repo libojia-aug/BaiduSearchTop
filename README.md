@@ -101,6 +101,12 @@ Use 333.1485261917114 Seconds
 
 ## Docker
 
+##### start
+
+```shell
+docker push docker.io/augooo/baidu-search-top
+```
+
 ##### 编译
 
 ```shell
